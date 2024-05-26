@@ -1,0 +1,56 @@
+<div class="product">
+  <img width="100px" src="product1.jpg" alt="Product 1">
+  <h3 id="item1">Product 1</h3>
+  <p>Description of Product 1</p>
+  <p id="p1">1999</p>
+  <input type="number" name="quantity" id="quan1" value="1" min="1">
+  <button type="button" onclick="addToCart(1)">Add to Cart</button>
+</div>
+<div class="product">
+  <img width="100px" src="product2.jpg" alt="Product 2">
+  <h3 id="item2">Product 2</h3>
+  <p>Description of Product 1</p>
+  <p id="p2">500</p>
+  <input type="number" name="quantity" id="quan2" value="1" min="1">
+  <button type="button" onclick="addToCart(2)">Add to Cart</button>
+</div>
+
+<table>
+  <tr>
+    <th>name</th>
+    <th>price</th>
+  </tr>
+  <tbody id="show">
+
+  </tbody>
+</table>
+
+<script>
+  var obj = []
+  var query = document.getElementById("")
+  function addToCart(itemNo) {
+    var priceItem = document.getElementById('p' + itemNo)
+    var quanItem = document.getElementById('quan' + itemNo)
+    var ItemName = document.getElementById('item' + itemNo)
+    var res = priceItem.textContent * quanItem.value;
+    var data = { price: priceItem.textContent, quan: quanItem.value, name: ItemName.textContent }
+    console.log(res);
+    obj.push(data)
+
+    console.log(obj);
+
+    obj.forEach(element => {
+      if(element.name === element){
+
+      }
+      document.getElementById("show").innerHTML += `
+        <tr>
+            <td id="productName">${element.name}</td>
+            <td id="productPrice">${element.price}</td>
+        </tr>
+    `;
+    });
+
+  }
+
+</script>

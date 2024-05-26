@@ -1,0 +1,40 @@
+<div class="product">
+  <h4>Watch no 1</h4>
+  <div class="product-box">
+    <img id="1" src="product1.jpg" width="100px" height="100px" alt="" />
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos,
+        quas.
+      </p>
+      <button onclick="bigimg(1)">View Img!</button>
+      <button onclick="">Add to cart!</button>
+    </div>
+  </div>
+</div>
+<div class="product">
+  <h4>Watch no 2</h4>
+  <div class="product-box">
+    <img id="2" src="product2.jpg" width="100px" height="100px" alt="" />
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos,
+        quas.
+      </p>
+      <button onclick="bigimg(2)">View Img</button>
+      <button onclick="bigimg(2)">Add to cart!</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var imgTag 
+  function bigimg(imgid) {
+    imgTag= document.getElementById(imgid)
+    console.log(imgTag);
+    imgTag.style.width='500px'
+    imgTag.style.height='500px'
+  }
+
+
+</script>

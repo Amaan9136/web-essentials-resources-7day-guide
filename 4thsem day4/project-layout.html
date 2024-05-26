@@ -1,0 +1,241 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        margin: 0px;
+      }
+
+      .main {
+        display: flex;
+        height: 100vh;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        background-color: skyblue;
+        width: 20%;
+        border: solid 4px red;
+      }
+
+      .content {
+        width: 100vw;
+        margin-left: 20%;
+        border: solid 4px blue;
+        /* added below line to remove the overlapping of border */
+        overflow-y: auto;
+      }
+
+      .list {
+        display: none;
+        list-style: none;
+        padding: 0px;
+      }
+
+      a {
+        text-decoration: none;
+        color: rgb(16, 46, 116);
+      }
+
+      a {
+        background-color: rgb(51, 51, 130);
+      }
+
+      li {
+        padding: 5px;
+      }
+
+      li:hover {
+        color: rgb(158, 10, 10);
+      }
+
+      .product{
+        border: solid 2px green;
+      }
+
+      .product-box {
+        display: flex;
+        border: solid 2px blueviolet;
+      }
+      
+    </style>
+
+    <script>
+      function showList() {
+        var listContent = document.getElementById("list")
+        var icons = document.getElementById("icon")
+        if(listContent.style.display==='none'){
+          listContent.style.display='block'
+          icons.classList.add("fa-x")
+          icons.classList.remove("fa-bars")
+        }else{
+          listContent.style.display='none'
+          icons.classList.add("fa-bars")
+          icons.classList.remove("fa-x")
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="nav">
+        <i onclick="showList()" class="fa fa-bars" aria-hidden="true" id="icon"></i>
+        <ul class="list" id="list">
+          <a href=""
+            ><li>
+              <i class="fa fa-home" aria-hidden="true"></i> &nbsp; Home
+            </li></a
+          >
+          <a href=""
+            ><li>
+              <i class="fa fa-search" aria-hidden="true"></i> &nbsp; Blog
+            </li></a
+          >
+          <a href=""
+            ><li>
+              <i class="fa fa-shop" aria-hidden="true"></i> &nbsp; Shop
+            </li></a
+          >
+          <a href=""
+            ><li>
+              <i class="fa fa-box" aria-hidden="true"></i> &nbsp; Products
+            </li></a
+          >
+          <a href=""
+            ><li>
+              <i class="fa fa-child" aria-hidden="true"></i> &nbsp; Cart
+            </li></a
+          >
+          <a href=""
+            ><li>
+              <i class="fa fa-phone" aria-hidden="true"></i> &nbsp; Contact Us
+            </li></a
+          >
+          <a href=""
+            ><li>
+              <i class="fa fa-user" aria-hidden="true"></i> &nbsp; About Us
+            </li></a
+          >
+        </ul>
+      </div>
+      <div class="content">
+        <h1 style="text-align: center">Products</h1>
+        <div class="product">
+          <h4>Watch no 1</h4>
+          <div class="product-box">
+            <img src="product1.jpg" width="100px" height="100px" alt="" />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos,
+                quas.
+              </p>
+              <input type="number" id="1">
+              <button onclick="calci(1)">Add to cart!</button>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <h4>Watch no 2</h4>
+          <div class="product-box">
+            <img src="product2.jpg" width="100px" height="100px" alt="" />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos,
+                quas.
+              </p>
+              <button>Add to cart!</button>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <h4>Watch no 1</h4>
+          <div class="product-box">
+            <img src="product1.jpg" width="100px" height="100px" alt="" />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos,
+                quas.
+              </p>
+              <button>Add to cart!</button>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <h4>Watch no 2</h4>
+          <div class="product-box">
+            <img src="product2.jpg" width="100px" height="100px" alt="" />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos,
+                quas.
+              </p>
+              <button>Add to cart!</button>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <h4>Watch no 1</h4>
+          <div class="product-box">
+            <img src="product1.jpg" width="100px" height="100px" alt="" />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos,
+                quas.
+              </p>
+              <button>Add to cart!</button>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <h4>Watch no 2</h4>
+          <div class="product-box">
+            <img src="product2.jpg" width="100px" height="100px" alt="" />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos,
+                quas.
+              </p>
+              <button>Add to cart!</button>
+            </div>
+          </div>
+        </div>
+        <div><table>
+          <tr>
+            <td>Sl no</td>
+            <td>Product</td>
+            <td>Price</td>
+            <td>Quantity</td>
+          </tr>
+          <tr>
+            <td id="Sl">Sl no</td>
+            <td id="Product">Product</td>
+            <td id="Price">Price</td>
+            <td id="Quantity">Quantity</td>
+          </tr>
+        </table></div>
+      </div>
+
+    </div>
+    <script>
+      function calci(item) {
+        var obj=[
+        {id:1,name:'watch1',price:200}
+        ]
+
+        var quan = document.getElementById(obj[item-1].id)
+        console.log(quan.value);
+        var cal=obj[item-1].price*quan.value
+        console.log(cal);
+      }
+    </script>
+  </body>
+</html>
