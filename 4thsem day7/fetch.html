@@ -1,0 +1,13 @@
+<!-- fetching data from a server - api (concept is not done as its only required to those who are using API) -->
+
+<script>
+  var resData;
+  fetch('https://swapi.dev/api/people')
+    .then(response => response.json())
+    .then(data => {
+      resData = data;
+      document.write(resData.results[0].name);
+    })
+    .catch(error => console.error('Error fetching data:', error));
+
+</script>

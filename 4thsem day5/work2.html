@@ -1,0 +1,38 @@
+<script>
+  // Prompt the user to enter the first number
+  var num1 = prompt("Enter the first number:");
+
+  // Prompt the user to enter the second number
+  var num2 = prompt("Enter the second number:");
+
+  // Convert the input strings to numbers
+  num1 = parseFloat(num1);
+  num2 = parseFloat(num2);
+
+  // Prompt the user to select an operation
+  var operator = prompt("Enter the operation (+, -, *, /):");
+
+  // Perform the calculation based on the selected operation
+  var result;
+  switch (operator) {
+    case '+':
+      result = num1 + num2;
+      break;
+    case '-':
+      result = num1 - num2;
+      break;
+    case '*':
+      result = num1 * num2;
+      break;
+    case '/':
+      result = num1 / num2;
+      break;
+    default:
+      alert("Invalid operator!");
+      break;
+  }
+
+  // Display the result in an alert box
+  alert("Result: " + result);
+
+</script>

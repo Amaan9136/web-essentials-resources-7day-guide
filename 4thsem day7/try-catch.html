@@ -1,0 +1,11 @@
+<!-- error msg due to below id having wrong value -->
+<div id="myDi"></div>
+
+<script>
+  try {
+    const myDiv = document.getElementById('myDiv');
+    console.log(myDiv.textContent); 
+  } catch (error) {
+    console.error("some error:", error.message);
+  }
+</script>

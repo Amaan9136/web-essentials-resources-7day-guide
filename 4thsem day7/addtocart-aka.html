@@ -1,0 +1,42 @@
+<script>
+  const products = [];
+
+function addToCart(itemNo) {
+  // Get elements by ID
+  const priceElement = document.getElementById('price'+itemNo);
+  const quantityElement = document.getElementById('quan'+itemNo);
+  const nameElement = document.getElementById('name'+itemNo);
+
+  // Extract values from elements
+  const price = parseFloat(priceElement.textContent);
+  const quantity = parseInt(quantityElement.value, 10);
+  const itemName = nameElement.textContent;
+
+  // Calculate total price
+  const totalPrice = price * quantity;
+
+  // Check if product already exists in cart
+  const existingProduct = products.find((product) => product.name === itemName);
+
+  if (existingProduct) {
+    // Update quantity and total price of existing product
+    existingProduct.quantity += quantity;
+    existingProduct.totalPrice += totalPrice;
+  } else {
+    // Add new product to cart
+    const newData = { name: itemName, price, quantity, totalPrice };
+    products.push(newData);
+  }
+
+  // Update cart content and total purchase price
+  let cartContent = '';
+  let totalPurchasePrice = 0;
+  products.forEach((element) => {
+    cartContent += `${element.name} * ${element.quantity} = ${element.totalPrice.toFixed(2)}\n`;
+    totalPurchasePrice += element.totalPrice;
+  });
+
+  document.getElementById('cartContent').textContent = cartContent;
+  document.getElementById('totalPurchasePrice').textContent = totalPurchasePrice.toFixed(2);
+}
+</script>

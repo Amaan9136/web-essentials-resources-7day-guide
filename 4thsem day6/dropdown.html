@@ -1,0 +1,19 @@
+<script>
+  function toggleDropdown() {
+    var dropdownContent = document.getElementById('dropdownContent');
+
+    if (dropdownContent.style.display === 'block') {
+      dropdownContent.style.display = 'none';
+    } else {
+      dropdownContent.style.display = 'block';
+    }
+  }
+</script>
+
+<button onclick="toggleDropdown()">toggle</button>
+<div style="display: none;" id="dropdownContent">
+  <a href="">Home</a><br>
+  <a href="">Blog</a><br>
+  <a href="">Products</a><br>
+  <a href="">Cart</a><br>
+</div>

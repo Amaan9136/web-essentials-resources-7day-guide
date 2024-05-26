@@ -1,0 +1,15 @@
+<div id="parentElementId">
+
+</div>
+
+<script>
+  // Step 1: Create the element
+  var newElement = document.createElement("p");
+
+  // Step 2: Set content
+  newElement.textContent = "This is a new element!";
+
+  // Step 3: Append the element to an existing parent element
+  var parentElement = document.getElementById("parentElementId");
+  parentElement.appendChild(newElement);
+</script>

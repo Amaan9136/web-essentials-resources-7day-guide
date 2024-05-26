@@ -1,0 +1,70 @@
+<!-- Demonstration of custom animation -->
+
+<!-- 
+transition: all 5s; is used in built in animation
+animation: custom-name 5s; is used in custom animation
+-->
+
+<style>
+  /* Pulse Animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Rotate Animation */
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Bounce Animation */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Apply animations to elements */
+  .pulse {
+    animation: pulse 5s ;
+  }
+
+  .rotate {
+    animation: rotate 2s linear infinite;
+  }
+
+  .bounce {
+    animation: bounce 0.5s infinite alternate;
+  }
+
+  /* Styling for demonstration */
+  .box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    display: flex;
+    background-color: red;
+  }
+</style>
+<body>
+
+<div class="box pulse"></div>
+<div class="box rotate"></div>
+<div class="box bounce"></div>
+
+</body>

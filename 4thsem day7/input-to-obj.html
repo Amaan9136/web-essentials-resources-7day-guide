@@ -1,0 +1,14 @@
+<input id="name">
+<input id="usn">
+<button onclick="submit()">Submit</button>
+
+<script>
+  var nameData = document.getElementById('name')
+  var usnData = document.getElementById('usn')
+  function submit() {
+    var nameValue = nameData.value
+    var usnValue = usnData.value
+    var data = { name: nameValue, usn: usnValue }
+    console.log(data);
+  }
+</script>

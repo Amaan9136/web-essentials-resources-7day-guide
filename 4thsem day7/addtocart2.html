@@ -1,0 +1,203 @@
+<html>
+
+<head>
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      color: #fff;
+      margin:0;
+      padding:0;
+      font-family: Arial;
+    }
+
+    header {
+      background-color: #1d2c4d;
+      padding: 20px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #fff;
+    }
+
+    th,
+    td {
+      padding: 10px;
+    }
+
+    th {
+      background-color: #1d2c4d;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #fff;
+      background-color: #1d2c4d;
+      color: #fff;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3d5fa3;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    button:hover {
+      background-color: #284478;
+    }
+
+    img {
+      border-radius: 5px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+
+
+<body>
+  <header>
+    <h1>Shopping Cart</h1>
+    <div id="products">
+      <h2>Products</h2>
+      <div class="product">
+        <img width="100px" src="product1.jpg" alt="Product 1">
+        <h3>Product 1</h3>
+        <p>Description of Product 1</p>
+        <p>₹1999</p>
+        <form>
+          <input type="hidden" name="productId" value="1">
+          <input type="number" name="quantity" value="1" min="1">
+          <button type="button" onclick="addToCart(this)">Add to Cart</button>
+        </form>
+      </div>
+
+      <div class="product">
+        <img width="100px" src="product2.jpg" alt="Product 2">
+        <h3>Product 2</h3>
+        <p>Description of Product 2</p>
+        <p>₹2499</p>
+        <form>
+          <input type="hidden" name="productId" value="2">
+          <input type="number" name="quantity" value="1" min="1">
+          <button type="button" onclick="addToCart(this)">Add to Cart</button>
+        </form>
+      </div>
+    </div>
+
+    <hr>
+
+    <div id="shopping-cart">
+      <h2>Shopping Cart</h2>
+      <table border="1px">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="2">Total</th>
+            <td colspan="2" id="total-price">₹0</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <br>
+    <hr>
+
+    <div id="checkout">
+      <h2>Checkout</h2>
+      <form id="checkout-form">
+        <input type="text" name="name" placeholder="Name">
+        <br>
+        <input type="text" name="email" placeholder="Email">
+        <br>
+        <textarea name="address" placeholder="Address"></textarea>
+        <br>
+        <button type="button" onclick="placeOrder(event)">Place Order</button>
+      </form>
+    </div>
+  </header>
+
+  <script>
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+    let cartItems = [];
+
+    function updateCart() {
+      cartItemsContainer.innerHTML = '';
+      let totalPrice = 0;
+      cartItems.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.quantity}</td>
+          <td>₹${item.price * item.quantity}</td>
+          <td><button onclick="removeFromCart(${item.id})">Remove</button></td>
+        `;
+        cartItemsContainer.appendChild(row);
+        totalPrice += item.price * item.quantity;
+      });
+      totalPriceElement.textContent = `₹${totalPrice}`;
+    }
+
+    function addToCart(button) {
+      const form = button.parentNode;
+      const productId = parseInt(form.querySelector('input[name="productId"]').value);
+      const quantity = parseInt(form.querySelector('input[name="quantity"]').value);
+      const product = {
+        id: productId,
+        name: `Product ${productId}`,
+        price: productId === 1 ? 1999 : 2499,
+        quantity: quantity
+      };
+      const existingItemIndex = cartItems.findIndex(item => item.id === productId);
+      if (existingItemIndex !== -1) {
+        cartItems[existingItemIndex].quantity += quantity;
+      } else {
+        cartItems.push(product);
+      }
+      updateCart();
+    }
+
+    function removeFromCart(itemId) {
+      cartItems = cartItems.filter(item => item.id !== itemId);
+      updateCart();
+    }
+
+    function placeOrder(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const checkoutData = {};
+      for (const [key, value] of formData.entries()) {
+        checkoutData[key] = value;
+      }
+      console.log('Checkout Data:', checkoutData);
+      cartItems = [];
+      updateCart();
+      alert('Order placed successfully!');
+    }
+  </script>
+</body>
+
+</html>

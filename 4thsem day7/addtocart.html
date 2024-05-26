@@ -1,0 +1,91 @@
+<div class="product">
+  <img width="100px" src="product1.jpg" alt="Product 1">
+  <h3 id="item1">Product 1</h3>
+  <p>Description of Product 1</p>
+  <p id="p1">1999</p>
+  <input type="number" name="quantity" id="quan1" value="1" min="1">
+  <button type="button" onclick="updateCart(1)">Add to Cart</button>
+</div>
+<div class="product">
+  <img width="100px" src="product2.jpg" alt="Product 2">
+  <h3 id="item2">Product 2</h3>
+  <p>Description of Product 2</p>
+  <p id="p2">500</p>
+  <input type="number" name="quantity" id="quan2" value="1" min="1">
+  <button type="button" onclick="updateCart(2)">Add to Cart</button>
+</div>
+
+
+
+<table border="3px" style="display: none;" id="table">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total Price</th>
+  </tr>
+  <tbody id="show">
+
+  </tbody>
+</table>
+
+<label id="totalPriceMessage" style="display: none;">This is your total purchase price:</label>
+<label id="totalPrice" style="display: none;"></label>
+
+<script>
+  var products = [];
+
+  function updateCart(itemNo) {
+    var priceItem = document.getElementById('p' + itemNo);
+    var quanItem = document.getElementById('quan' + itemNo);
+    var itemName = document.getElementById('item' + itemNo).textContent;
+    var price = parseFloat(priceItem.textContent);
+    var quantity = parseInt(quanItem.value);
+    var totalPrice = price * quantity;
+
+    // Check if the product already exists in the cart
+    var existingProduct = products.find(product => product.name === itemName);
+    if (existingProduct) {
+      // Update the quantity and total price of the existing product
+      existingProduct.quantity += quantity;
+      existingProduct.totalPrice += totalPrice;
+    } else {
+      //  new product to the cart if not exists in products array
+      var data = { name: itemName, price: price, quantity: quantity, totalPrice: totalPrice };
+      products.push(data);
+    }
+
+    var cartContent = '';
+    var totalPurchasePrice = 0;
+
+    products.forEach(element => {
+      cartContent += `
+        <tr>
+          <td>${element.name}</td>
+          <td>${element.price}</td>
+          <td>${element.quantity}</td>
+          <td>${element.totalPrice}</td>
+        </tr>`;
+      totalPurchasePrice += element.totalPrice;
+    });
+
+    var showTable = document.getElementById("show");
+    showTable.innerHTML = cartContent;
+
+    // show table only when there are products in the cart
+    var table = document.getElementById('table');
+    var totalPriceMessage = document.getElementById('totalPriceMessage');
+    var totalPrice = document.getElementById('totalPrice');
+
+    if (products.length > 0) {
+      table.style.display = 'block';
+      totalPriceMessage.style.display = 'block';
+      totalPrice.style.display = 'block';
+      totalPrice.textContent = totalPurchasePrice;
+    } else {
+      table.style.display = 'none';
+      totalPriceMessage.style.display = 'none';
+      totalPrice.style.display = 'none';
+    }
+  }
+</script>

@@ -1,0 +1,20 @@
+<button id="toggleButton">Toggle</button>
+<div style="display: none;" id="dropdownContent">
+  <button>Home</button><br>
+  <button>Blog</button><br>
+  <button>Products</button><br>
+  <button>Cart</button><br>
+</div>
+
+<script>
+  var toggleButton = document.getElementById('toggleButton');
+  var dropdownContent = document.getElementById('dropdownContent');
+
+  toggleButton.addEventListener('mouseenter', function() {
+    dropdownContent.style.display = 'block';
+  });
+
+  dropdownContent.addEventListener('mouseleave', function() {
+    dropdownContent.style.display = 'none';
+  });
+</script>

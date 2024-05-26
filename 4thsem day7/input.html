@@ -1,0 +1,12 @@
+<input type="text" id="myId" oninput="read()">
+<p id="pTag"></p>
+
+<script>
+  var myId = document.getElementById('myId')
+  var pTag = document.getElementById('pTag')
+
+  function read() {
+    var nameValue = myId.value 
+    pTag.textContent = nameValue
+  }
+</script>

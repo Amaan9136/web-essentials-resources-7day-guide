@@ -1,0 +1,27 @@
+<!-- Demonstration of built-in animation (transition property) -->
+
+<style>
+  .btn{
+    padding: 8px 10px;
+    color: red;
+    background-color: orange;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btn:hover{
+    background-color: red;
+    color: orange;
+
+    /* animations to all above properties for 0.5s duration */
+    transition: all 0.8s;
+    
+    /* to apply animation to particular things:-
+    transition: background-color 0.8s;
+    transition: color 0.8s;
+    */
+  }
+</style>
+
+<button class="btn">Hover on Me!</button>

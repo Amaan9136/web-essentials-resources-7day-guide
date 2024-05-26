@@ -1,0 +1,16 @@
+<p id="p">0</p>
+<button onclick="inc()">+</button>
+<button onclick="dec()">-</button>
+<script>
+  var p=document.getElementById('p')
+  var count=0
+  function inc(){
+    count++
+    p.textContent=count
+  }
+  function dec(){
+    count--
+    p.textContent=count
+  }
+</script>
+
