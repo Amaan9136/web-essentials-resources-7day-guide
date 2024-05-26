@@ -38,7 +38,7 @@ We welcome contributions from students and instructors. To contribute:
 
 ## License
 
-This repository is licensed under the MIT License. See the `LICENSE` file for more details.
+This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contact
 
