@@ -1,3 +1,4 @@
+# web-essentials-resources-7day-guide
 # Technical Add-On Course Resources
 
 Welcome to the repository for the **web-essentials-resources-7day-guide** conducted in collaboration with WebVinyasa for the 4th semester Computer Science students. This repository contains all the notes, resources, and materials shared during the course.
